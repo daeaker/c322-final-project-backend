@@ -17,7 +17,7 @@ import java.util.List;
 @Repository
 public class FlowerRepository {
 
-    private String IMAGES_FOLDER_PATH = "flowers/images/";
+    private static String IMAGES_FOLDER_PATH = "flowers/images/";
     private String DATABASE_NAME = "flowers/flowers.txt";
     private static final String NEW_LINE = System.lineSeparator();
 
@@ -108,7 +108,7 @@ public class FlowerRepository {
 
 
 
-    public byte[] getImage(int id) throws IOException {
+    public static byte[] getImage(int id) throws IOException {
         String fileExtension = ".jpeg";
         Path path = Paths.get(IMAGES_FOLDER_PATH
                 + id + fileExtension);
