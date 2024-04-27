@@ -1,6 +1,7 @@
 package edu.iu.daeaker.c322finalprojectbackend.repository;
 
 import edu.iu.daeaker.c322finalprojectbackend.model.Flower;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,7 +15,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
+@Component
 public class FlowerRepository {
 
     private static String IMAGES_FOLDER_PATH = "flowers/images/";
