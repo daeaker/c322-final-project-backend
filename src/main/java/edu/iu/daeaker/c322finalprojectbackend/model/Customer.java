@@ -1,4 +1,4 @@
-package edu.iu.daeaker.model;
+package edu.iu.daeaker.c322finalprojectbackend.model;
 
 public class Customer {
 
