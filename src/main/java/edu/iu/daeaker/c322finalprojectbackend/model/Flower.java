@@ -3,10 +3,10 @@ package edu.iu.daeaker.c322finalprojectbackend.model;
 public class Flower {
 
     private int id;
-    private String type;
-    private String occasion;
-    private String color;
-    private int price;
+    private static String type;
+    private static String occasion;
+    private static String color;
+    private static int price;
 
     public Flower(){}
 
@@ -16,6 +16,15 @@ public class Flower {
         this.occasion = occasion;
         this.color = color;
         this.price = price;
+    }
+
+    public static String toLine(int id) {
+        return String.format("%1$s,%2$s,%3$s,%4$s,%5$s", id, type, occasion, color, price);
+    }
+
+    public static Flower fromLine(String line) {
+        String[] tokens = line.split(",");
+        return new Flower(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], Integer.parseInt(tokens[4]));
     }
 
 

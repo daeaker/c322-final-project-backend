@@ -15,8 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class CustomerRepository {
     private static final Logger LOG =
             LoggerFactory.getLogger(CustomerRepository.class);
@@ -31,7 +32,7 @@ public class CustomerRepository {
     }
 
     private static final String NEW_LINE = System.lineSeparator();
-    private static final String DATABASE_NAME = "ducks/customers.txt";
+    private static final String DATABASE_NAME = "flowers/customers.txt";
     private static void appendToFile(Path path, String content)
             throws IOException {
         Files.write(path,
