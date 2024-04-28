@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,6 +40,16 @@ public class FlowerController {
             return ResponseEntity.status(HttpStatus.FOUND)
                     .contentType(MediaType.IMAGE_PNG)
                     .body(image);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @PostMapping("/{id}/image")
+    public boolean updateImage(@PathVariable int id,
+                               @RequestParam MultipartFile file) {
+        try {
+            return flowerRepository.updateImage(id, file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

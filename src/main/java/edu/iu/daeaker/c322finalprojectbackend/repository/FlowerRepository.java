@@ -24,7 +24,6 @@ public class FlowerRepository {
 
 
     public FlowerRepository() {
-
         File flowersImagesDirectory = new File("flowers/images");
         if (!flowersImagesDirectory.exists()) {
             flowersImagesDirectory.mkdirs();
@@ -55,7 +54,7 @@ public class FlowerRepository {
         }
         int id = maxId + 1;
         Path path = Paths.get(DATABASE_NAME);
-        String data = Flower.toLine(id);
+        String data = flower.toLine(id);
         appendToFile(path, data + NEW_LINE);
         return id;
     }

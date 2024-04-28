@@ -7,24 +7,26 @@ public class Flower {
     private static String occasion;
     private static String color;
     private static int price;
+    private static String name;
 
     public Flower(){}
 
-    public Flower(int id, String type, String occasion, String color, int price) {
+    public Flower(int id, String type, String occasion, String color, int price, String name) {
         this.id = id;
         this.type = type;
         this.occasion = occasion;
         this.color = color;
         this.price = price;
+        this.name = name;
     }
 
     public static String toLine(int id) {
-        return String.format("%1$s,%2$s,%3$s,%4$s,%5$s", id, type, occasion, color, price);
+        return String.format("%1$s,%2$s,%3$s,%4$s,%5$s,%6$s", id, type, occasion, color, price, name);
     }
 
     public static Flower fromLine(String line) {
         String[] tokens = line.split(",");
-        return new Flower(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], Integer.parseInt(tokens[4]));
+        return new Flower(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], Integer.parseInt(tokens[4]), tokens[5]);
     }
 
 
@@ -67,4 +69,8 @@ public class Flower {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    public static String getName() { return name; }
+
+    public static void setName(String name) { Flower.name = name; }
 }

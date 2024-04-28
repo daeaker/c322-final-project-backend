@@ -2,13 +2,13 @@ package edu.iu.daeaker.c322finalprojectbackend.model;
 
 public class Order {
 
-    private int id;
-    private int customerId;
-    private String flowerName;
-    private int cost;
-    private String firstName;
-    private String lastName;
-    private String status;
+    private static int id;
+    private static int customerId;
+    private static String flowerName;
+    private static int cost;
+    private static String firstName;
+    private static String lastName;
+    private static String status;
 
 
     public Order() {}
@@ -22,6 +22,16 @@ public class Order {
         this.firstName = firstName;
         this.lastName = lastName;
         this.status = status;
+    }
+
+
+    public static String toLine(int id) {
+        return String.format("%1$s,%2$s,%3$s,%4$s,%5$s,%6$s,%7$s", id, customerId, flowerName, cost, firstName, lastName, status);
+    }
+
+    public static Order fromLine(String line) {
+        String[] tokens = line.split(",");
+        return new Order(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]), tokens[2], Integer.parseInt(tokens[3]), tokens[4], tokens[5], tokens[6]);
     }
 
 
