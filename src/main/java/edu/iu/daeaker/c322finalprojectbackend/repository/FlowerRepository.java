@@ -67,6 +67,7 @@ public class FlowerRepository {
         Path path = Paths.get(DATABASE_NAME);
         List<String> data = Files.readAllLines(path);
         for (String line : data) {
+            System.out.println(line);
             if(!line.trim().isEmpty()) {
                 Flower d = Flower.fromLine(line);
                 result.add(d);

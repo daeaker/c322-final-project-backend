@@ -4,3 +4,5 @@
 4,1,SUGAR RUSH,74,Brad,White,submitted
 5,1,SUGAR RUSH,104,Sam,Green,submitted
 6,2,CASABLANCA,60,Kate,White,submitted
+7,1,null,74,Steve,Last,submitted
+8,1,CASABLANCA,74,Elayna,White,submitted

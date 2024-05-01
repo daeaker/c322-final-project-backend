@@ -65,6 +65,15 @@ public class FlowerController {
         }
     }
 
+    @GetMapping("/{id}")
+    public Flower find(@PathVariable int id) {
+        try {
+            return flowerRepository.find(id);
+        } catch (IOException e) {
+            throw new RuntimeException();
+        }
+    }
+
 
 
 }

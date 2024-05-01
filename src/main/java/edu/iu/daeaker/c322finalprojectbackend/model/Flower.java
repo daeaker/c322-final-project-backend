@@ -70,7 +70,7 @@ public class Flower {
         this.price = price;
     }
 
-    public static String getName() { return name; }
+    public String getName() { return name; }
 
-    public static void setName(String name) { Flower.name = name; }
+    public void setName(String name) { Flower.name = name; }
 }
