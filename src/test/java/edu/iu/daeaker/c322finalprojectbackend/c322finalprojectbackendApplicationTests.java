@@ -9,5 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class c322finalprojectbackendApplicationTests {
 
     @Test
-    void test(){}
+    void test(){
+        Assertions.assertTrue(true);
+    }
 }
