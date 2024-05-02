@@ -12,4 +12,5 @@ public class c322finalprojectbackendApplicationTests {
     void test(){
         Assertions.assertTrue(true);
     }
+    void contextLoad() {}
 }
