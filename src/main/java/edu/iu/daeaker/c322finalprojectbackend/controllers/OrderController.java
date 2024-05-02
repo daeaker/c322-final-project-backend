@@ -1,6 +1,7 @@
 package edu.iu.daeaker.c322finalprojectbackend.controllers;
 
 import edu.iu.daeaker.c322finalprojectbackend.model.Order;
+import edu.iu.daeaker.c322finalprojectbackend.repository.OrderFileRepository;
 import edu.iu.daeaker.c322finalprojectbackend.repository.OrderRepository;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,9 +13,11 @@ import java.util.List;
 @RequestMapping("/orders")
 public class OrderController {
 
+    private OrderFileRepository orderFileRepository;
     private OrderRepository orderRepository;
 
-    public OrderController(OrderRepository orderRepository) {
+    public OrderController(OrderFileRepository orderFileRepository, OrderRepository orderRepository) {
+        this.orderFileRepository = orderFileRepository;
         this.orderRepository = orderRepository;
     }
 
@@ -22,7 +25,7 @@ public class OrderController {
     @PostMapping
     public int add(@RequestBody Order order) {
         try {
-            return orderRepository.add(order);
+            return orderFileRepository.add(order);
         } catch (IOException e) {
             throw new RuntimeException();
         }
@@ -31,7 +34,7 @@ public class OrderController {
     @GetMapping("/{id}")
     public List<Order> find(@PathVariable("id") int id) {
         try {
-            return orderRepository.find(id);
+            return orderFileRepository.find(id);
         } catch (IOException e) {
             throw new RuntimeException();
         }

@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 public class Order {
 
     @Id
-    private static int id;
+    private int id;
     private static int customerId;
     private static String flowerName;
     private static int cost;

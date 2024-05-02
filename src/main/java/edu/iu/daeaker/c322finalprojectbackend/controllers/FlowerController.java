@@ -1,6 +1,7 @@
 package edu.iu.daeaker.c322finalprojectbackend.controllers;
 
 import edu.iu.daeaker.c322finalprojectbackend.model.Flower;
+import edu.iu.daeaker.c322finalprojectbackend.repository.FlowerFileRepository;
 import edu.iu.daeaker.c322finalprojectbackend.repository.FlowerRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,16 +18,18 @@ import java.util.List;
 public class FlowerController {
 
     private FlowerRepository flowerRepository;
+    private FlowerFileRepository flowerFileRepository;
 
-    public FlowerController(FlowerRepository flowerRepository) {
+    public FlowerController(FlowerRepository flowerRepository, FlowerFileRepository flowerFileRepository) {
         this.flowerRepository = flowerRepository;
+        this.flowerFileRepository = flowerFileRepository;
     }
 
 
     @GetMapping
     public List<Flower> findAll() {
         try {
-            return flowerRepository.findAll();
+            return flowerFileRepository.findAll();
         }
         catch (IOException e) {
             throw new RuntimeException();
@@ -36,7 +39,7 @@ public class FlowerController {
     @GetMapping("/{id}/image")
     public ResponseEntity<?> getImage(@PathVariable int id) {
         try {
-            byte[] image = FlowerRepository.getImage(id);
+            byte[] image = FlowerFileRepository.getImage(id);
             return ResponseEntity.status(HttpStatus.FOUND)
                     .contentType(MediaType.IMAGE_PNG)
                     .body(image);
@@ -49,7 +52,7 @@ public class FlowerController {
     public boolean updateImage(@PathVariable int id,
                                @RequestParam MultipartFile file) {
         try {
-            return flowerRepository.updateImage(id, file);
+            return flowerFileRepository.updateImage(id, file);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -59,7 +62,7 @@ public class FlowerController {
     @PostMapping
     public int add(@RequestBody Flower flower) {
         try {
-            return flowerRepository.add(flower);
+            return flowerFileRepository.add(flower);
         } catch (IOException e) {
             throw new RuntimeException();
         }
@@ -68,7 +71,7 @@ public class FlowerController {
     @GetMapping("/{id}")
     public Flower find(@PathVariable int id) {
         try {
-            return flowerRepository.find(id);
+            return flowerFileRepository.find(id);
         } catch (IOException e) {
             throw new RuntimeException();
         }

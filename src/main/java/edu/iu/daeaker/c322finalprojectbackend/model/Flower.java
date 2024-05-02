@@ -1,7 +1,13 @@
 package edu.iu.daeaker.c322finalprojectbackend.model;
 
-public class Flower {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(schema = "flowers")
+public class Flower {
+    @Id
     private int id;
     private static String type;
     private static String occasion;
