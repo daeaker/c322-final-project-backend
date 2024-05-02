@@ -1,7 +1,15 @@
 package edu.iu.daeaker.c322finalprojectbackend.model;
 
-public class Customer {
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+@Entity
+@Table(schema = "flowers")
+public final class Customer {
+
+    @Id
     private String username;
     private String password;
     private String email;

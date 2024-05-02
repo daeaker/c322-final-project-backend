@@ -2,6 +2,7 @@ package edu.iu.daeaker.c322finalprojectbackend.security;
 
 
 import edu.iu.daeaker.c322finalprojectbackend.model.Customer;
+import edu.iu.daeaker.c322finalprojectbackend.repository.CustomerFileRepository;
 import edu.iu.daeaker.c322finalprojectbackend.repository.CustomerRepository;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
